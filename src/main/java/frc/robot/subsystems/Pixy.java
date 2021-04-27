@@ -18,8 +18,15 @@ public class Pixy extends SubsystemBase {
   public void init() {
     m_camera = Pixy2.createInstance(new SPILink()); // Creates a new Pixy2 camera using SPILink
 		m_camera.init(); // Initializes the camera and prepares to send/receive data
+  }
+
+  public void setLED(int r, int g, int b) {
 		m_camera.setLamp((byte) 1, (byte) 1); // Turns the LEDs on
-		m_camera.setLED(200, 30, 255); // Sets the RGB LED to purple
+		m_camera.setLED(r, g, b);
+  }
+
+  public void disableLED() {
+    m_camera.setLamp((byte) 0, (byte) 0);
   }
 
   @Override
