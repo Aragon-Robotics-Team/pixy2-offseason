@@ -5,11 +5,13 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.util.ErrorLogger;
 import io.github.pseudoresonance.pixy2api.Pixy2;
 import io.github.pseudoresonance.pixy2api.links.SPILink;
 
 public class Pixy extends SubsystemBase {
   private Pixy2 m_camera;
+  private static ErrorLogger logger = new ErrorLogger();
 
   /** Creates a new Pixy. */
   public Pixy() {
@@ -20,12 +22,14 @@ public class Pixy extends SubsystemBase {
 
     System.out.println(m_camera.getVersionInfo().toString());
 
-		m_camera.init(); // Initializes the camera and prepares to send/receive data
+    m_camera.init(); // Initializes the camera and prepares to send/receive data
   }
 
   public void setLED(int r, int g, int b) {
-		m_camera.setLamp((byte) 1, (byte) 1); // Turns the LEDs on
-		m_camera.setLED(r, g, b);
+    byte code = m_camera.setLamp((byte) 1, (byte) 1); // Turns the LEDs on
+    logger.logErrorIfExists(code);
+    code = m_camera.setLED(r, g, b);
+    logger.logErrorIfExists(code);
   }
 
   public void disableLED() {
