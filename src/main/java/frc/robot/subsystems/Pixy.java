@@ -17,6 +17,9 @@ public class Pixy extends SubsystemBase {
 
   public void init() {
     m_camera = Pixy2.createInstance(new SPILink()); // Creates a new Pixy2 camera using SPILink
+
+    System.out.println(m_camera.getVersionInfo().toString());
+
 		m_camera.init(); // Initializes the camera and prepares to send/receive data
   }
 
