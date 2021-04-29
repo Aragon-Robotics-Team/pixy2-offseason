@@ -36,6 +36,10 @@ public class Pixy extends SubsystemBase {
     m_camera.setLamp((byte) 0, (byte) 0);
   }
 
+  public int updateBlockCache(byte signature, int blockLimit) {
+		return m_camera.getCCC().getBlocks(false, signature, blockLimit);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

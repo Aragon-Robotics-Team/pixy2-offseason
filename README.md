@@ -33,6 +33,11 @@
 
 The pixy2 offseason project is a revolutionary project done in the off season regarding a camera of the pixy2 variety :0
 
+## TODO
+
+ - [ ] Download PixyMon
+ - [ ] Configure CC's
+
 ## FAQ
 
 - What is a camera?
