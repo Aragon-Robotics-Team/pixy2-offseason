@@ -37,7 +37,7 @@ public class Pixy extends SubsystemBase {
   }
 
   public int updateBlockCache(byte signature, int blockLimit) {
-		return m_camera.getCCC().getBlocks(false, signature, blockLimit);
+    return m_camera.getCCC().getBlocks(false, signature, blockLimit);
   }
 
   @Override
